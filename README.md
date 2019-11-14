@@ -1,6 +1,7 @@
 [![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
 
 # MALTrendsWeb
+Django/React/Postgres build of a web app to display MyAnimeList scores over time.
 
 ## About
 A [Django](https://www.djangoproject.com/) project boilerplate/template with lots of state of the art libraries and tools like:
@@ -26,16 +27,16 @@ This is a good starting point for modern Python/JavaScript web projects.
 ### Setup (plain python)
 - Inside the `backend` folder, do the following:
 - Create a copy of ``MALTrendsWeb/settings/local.py.example``:
-  `cp MALTrendsWeb/settings/local.py.example MALTrendsWeb/settings/local.py` (remembering you should replace `MALTrendsWeb` with your project's name!).
+  `cp MALTrendsWeb/settings/local.py.example MALTrendsWeb/settings/local.py`.
 - Create a copy of ``.env.example``:
   `cp .env.example .env`
 If you are using plain python:
-- Create the migrations for `users` app (do this, then remove this line from the README):
+- Create the migrations for `users` app:
   `python manage.py makemigrations`
 - Run the migrations:
   `python manage.py migrate`
 If you are using docker:
-- Create the migrations for `users` app (do this, then remove this line from the README):
+- Create the migrations for `users` app:
   `docker-compose backend run python manage.py makemigrations`
 - Run the migrations:
   `docker-compose backend run python manage.py migrate`
