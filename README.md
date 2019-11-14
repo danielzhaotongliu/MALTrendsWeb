@@ -30,12 +30,12 @@ This is a good starting point for modern Python/JavaScript web projects.
   `cp MALTrendsWeb/settings/local.py.example MALTrendsWeb/settings/local.py`.
 - Create a copy of ``.env.example``:
   `cp .env.example .env`
-If you are using plain python:
+- If you are using plain python:
 - Create the migrations for `users` app:
   `python manage.py makemigrations`
 - Run the migrations:
   `python manage.py migrate`
-If you are using docker:
+- If you are using docker:
 - Create the migrations for `users` app:
   `docker-compose backend run python manage.py makemigrations`
 - Run the migrations:
@@ -50,7 +50,7 @@ If you are using docker:
 - `npm install`
 - `npm run start`
 - Open another command line window and go to the `backend` directory.
-- `workon theprojectname` or `source theprojectname/bin/activate` depending on if you are using virtualenvwrapper or just virtualenv.
+- `workon MALTrendsWeb` or `source MALTrendsWeb/bin/activate` depending on if you are using virtualenvwrapper or just virtualenv.
 - `python manage.py runserver`
 
 
@@ -61,7 +61,7 @@ To access the logs for each service run `docker-compose logs -f service_name` (e
 
 #### Celery
 - Open a command line window and go to the project's directory
-- `workon theprojectname` or `source theprojectname/bin/activate` depending on if you are using virtualenvwrapper or just virtualenv.
+- `workon MALTrendsWeb` or `source MALTrendsWeb/bin/activate` depending on if you are using virtualenvwrapper or just virtualenv.
 - `python manage.py celery`
 
 ### Testing
