@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
 
-# Django React Boilerplate
+# MALTrendsWeb
 
 ## About
 A [Django](https://www.djangoproject.com/) project boilerplate/template with lots of state of the art libraries and tools like:
@@ -21,29 +21,6 @@ Also, includes a Heroku `app.json` and a working Django `production.py` settings
 - Papertrail, for logs and platform errors alerts (must set them manually)
 
 This is a good starting point for modern Python/JavaScript web projects.
-
-## Project bootstrap [![CircleCI](https://circleci.com/gh/vintasoftware/django-react-boilerplate.svg?style=svg)](https://circleci.com/gh/vintasoftware/django-react-boilerplate) [![Greenkeeper badge](https://badges.greenkeeper.io/vintasoftware/django-react-boilerplate.svg)](https://greenkeeper.io/)
-- [ ] Install Django with `pip install django`, to have the `django-admin` command available.
-- [ ] Open the command line and go to the directory you want to start your project in.
-- [ ] Start your project using:
-```
-django-admin startproject theprojectname --extension py,yml,json --name Procfile,Dockerfile,README.md,.env.example --template=https://github.com/vintasoftware/django-react-boilerplate/archive/boilerplate-release.zip
-```
-In the next steps, always remember to replace theprojectname with your project's name
-- [ ] Above: don't forget the `--extension` and `--name` params!
-- [ ] Navigate to the project's directory through your command line.
-- [ ] Create a new virtualenv with either [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) or only virtualenv: `mkvirtualenv theprojectname` or `python -m venv theprojectname`.
-- [ ] Make sure the virtualenv is activated `workon theprojectname` or `source theprojectname/bin/activate`
-- [ ] Install pip-tools if not installed yet: `pip install pip-tools` (maybe you'll have to run this command as an OS superuser).
-- [ ] Make sure you have Python 3.7 installed.
-- [ ] Compile the requirements before installation: `pip-compile requirements.in > requirements.txt && pip-compile dev-requirements.in > dev-requirements.txt`
-- [ ] `pip install -r requirements.txt && pip install -r dev-requirements.txt`
-- [ ] Change the first line of README to the name of the project.
-- [ ] Add an email address to the `ADMINS` settings variable in `MALTrendsWeb/MALTrendsWeb/settings/base.py`
-- [ ] Change the `SERVER_EMAIL` to the email address used to send e-mails in `MALTrendsWeb/MALTrendsWeb/settings/production.py`
-- [ ] Rename the folder `circleci` to `.circleci` with the command `mv circleci .circleci`
-
-After completing ALL of the above, remove this `Project bootstrap` section from the project README. Then follow `Running` below.
 
 ## Running
 ### Setup (plain python)
