@@ -1,3 +1,4 @@
 import ColorChanger from './ColorChanger';
+import SearchBar from './SearchBar';
 
-export default ColorChanger;
+export { ColorChanger, SearchBar };

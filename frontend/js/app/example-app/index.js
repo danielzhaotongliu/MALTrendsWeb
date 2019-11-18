@@ -1,3 +1,3 @@
-import ColorChanger from './components';
+import { ColorChanger, SearchBar } from './components';
 
-export default ColorChanger;
+export { ColorChanger, SearchBar };
