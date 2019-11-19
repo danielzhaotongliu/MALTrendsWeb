@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { ColorChanger } from '../app/example-app';
-import SearchBar from '../app/example-app/components/SearchBar';
+import SearchBar from '../components/SearchBar';
 
 const title = 'MyAnimeList score progression over time';
 
@@ -10,8 +9,7 @@ const Home = () => {
 
   return (
     <>
-      <ColorChanger title={title} />
-      <SearchBar />
+      <SearchBar className="main-container" />
     </>
   );
 };

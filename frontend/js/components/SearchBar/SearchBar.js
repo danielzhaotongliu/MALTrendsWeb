@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 
+import './style.scss';
+
 // TODO: test show up, need to get list from backend
 const animes = [
     {
