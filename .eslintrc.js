@@ -4,6 +4,8 @@ module.exports = {
   extends: 'vinta/recommended',
   rules: {
     'jest/prefer-inline-snapshots': ['off'],
+    'import/no-named-as-default': 0,
+    'import/no-named-as-default-member': 0,
   },
   env: {
     es6: true,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/SearchBar/SearchBar';
 
 const title = 'MyAnimeList score progression over time';
 
