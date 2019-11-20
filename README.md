@@ -4,7 +4,7 @@
 Django/React/Postgres build of a web app to display MyAnimeList scores over time.
 
 ## About
-A [Django](https://www.djangoproject.com/) project boilerplate/template with lots of state of the art libraries and tools like:
+A [Django](https://www.djangoproject.com/) project with lots of state of the art libraries and tools like:
 - [React](https://facebook.github.io/react/), for building interactive UIs
 - [django-js-reverse](https://github.com/ierror/django-js-reverse), for generating URLs on JS
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com/), for responsive styling
@@ -20,8 +20,6 @@ Also, includes a Heroku `app.json` and a working Django `production.py` settings
 - Redis, for Celery
 - Sendgrid, for e-mail sending
 - Papertrail, for logs and platform errors alerts (must set them manually)
-
-This is a good starting point for modern Python/JavaScript web projects.
 
 ## Running
 ### Setup (plain python)
@@ -121,7 +119,7 @@ After enabling dyno metadata and setting the environment variables, your next He
 - Run `git commit -m "Your message" -n` to skip the hook if you need.
 
 ## Commercial Support
-This project, as other Vinta open-source projects, is used in products of Vinta clients. We are always looking for exciting work, so if you need any commercial support, feel free to get in touch: contact@vinta.com.br
+Copyright (c) 2019 Daniel Liu
 
 Copyright (c) 2018 Vinta Serviços e Soluções Tecnológicas Ltda.
 [MIT License](LICENSE.txt)
