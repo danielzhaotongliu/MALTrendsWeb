@@ -6,12 +6,22 @@ import './style.scss';
 
 // TODO: test show up, need to get list from backend
 const animes = [
-    {
-        name: 'Sword Art Online'
-    },
-    {
-        name: 'Sword Art Online II'
-    },
+    { name: 'Sword Art Online' },
+    { name: 'Sword Art Online II' },
+    { name: 'Clannad' },
+    { name: 'Clannad After Story' },
+    { name: 'Azur Lane' },
+    { name: 'test' },
+    { name: 'test1' },
+    { name: 'test2' },
+    { name: 'test3' },
+    { name: 'test4' },
+    { name: 'test5' },
+    { name: 'test6' },
+    { name: 'test7' },
+    { name: 'test8' },
+    { name: 'test9' },
+    { name: 'test0' },
 ]
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
@@ -77,7 +87,7 @@ class SearchBar extends React.Component {
 
         // Autosuggest will pass through all these props to the input.
         const inputProps = {
-            placeholder: 'Search for an anime, e.g. Sword Art Online',
+            placeholder: 'Search for an anime',
             value,
             onChange: this.onChange
         };
