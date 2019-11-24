@@ -1,10 +1,12 @@
 import React from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, AutoComplete } from 'antd';
 
 import 'antd/dist/antd.css';
-import './SideBarAntDStyle.css';
+import './SideBarAntStyle.css';
 
 const { Header, Content, Footer, Sider } = Layout;
+
+const dataSource = ['Burns Bay Road', 'Downing Street', 'Wall Street'];
 
 export default function PermanentSiderLeft() {
   return (
@@ -18,12 +20,13 @@ export default function PermanentSiderLeft() {
         }}
       >
         <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-          <Menu.Item key="1">
-            <Icon type="bar-chart" />
-            <span className="nav-text">Search</span>
-          </Menu.Item>
-        </Menu>
+        <AutoComplete
+          dataSource={dataSource}
+          filterOption={(inputValue, option) =>
+            option.props.children.toUpperCase().includes(inputValue.toUpperCase())
+          }
+          placeholder="Search..."
+        />
       </Sider>
       <Layout style={{ marginLeft: 200 }}>
         <Header style={{ background: '#fff', padding: 0 }} />

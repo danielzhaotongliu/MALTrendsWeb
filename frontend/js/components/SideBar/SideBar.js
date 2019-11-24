@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import SearchBar from '../SearchBar/SearchBar';
 
 const drawerWidth = 240;
 
@@ -58,13 +59,14 @@ export default function PermanentDrawerLeft() {
       >
         <div className={classes.toolbar} />
         <Divider />
-        <List>
+        {/* <List>
           {['SearchBar', 'test1', 'test2', 'test3'].map((text) => (
             <ListItem key={text} button>
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
+        <SearchBar />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
