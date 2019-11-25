@@ -24,11 +24,11 @@ const animes = [
 
 export default function FreeSolo() {
   return (
-    <div style={{ width: 250 }}>
+    <div style={{ width: 220 }}>
       <Autocomplete
         freeSolo
         id="anime-search"
-        options={animes.map((option) => option.title)}
+        options={animes.map((option) => option.name)}
         renderInput={(params) => (
           <TextField {...params} label="Search..." margin="normal" variant="outlined" fullWidth />
         )}
