@@ -24,7 +24,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = base_dir_join('mediafiles')
 MEDIA_URL = '/media/'
 
-SERVER_EMAIL = 'ztliu@edu.uwaterloo.ca'
+SERVER_EMAIL = 'ztliu@uwaterloo.ca'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = config('SENDGRID_USERNAME')

@@ -18,7 +18,7 @@ SECURE_HSTS_PRELOAD = True
 DEBUG = True
 
 ADMINS = (
-    ('Admin', 'ztliu@edu.uwaterloo.ca'),
+    ('Admin', 'ztliu@uwaterloo.ca'),
 )
 
 AUTH_USER_MODEL = 'users.User'
