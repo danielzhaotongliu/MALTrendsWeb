@@ -17,7 +17,7 @@ class Anime(models.Model):
 class Score(models.Model):
     score = models.FloatField()
     date_time = models.DateTimeField()
-    anime = models.ForeignKey(Anime, on_delete=models.CASCADE)
+    anime = models.ForeignKey(Anime, on_delete=models.CASCADE, related_name='scores')
 
     def __str__(self):
         return str(self.score)
