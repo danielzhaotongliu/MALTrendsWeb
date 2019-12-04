@@ -29,15 +29,15 @@ Also, includes a Heroku `app.json` and a working Django `production.py` settings
 - Create a copy of ``.env.example``:
   `cp .env.example .env`
 - If you are using plain python:
-- Create the migrations for `users` app:
-  `python manage.py makemigrations`
-- Run the migrations:
-  `python manage.py migrate`
+    - Create the migrations for `users` app:
+    `python manage.py makemigrations`
+    - Run the migrations:
+    `python manage.py migrate`
 - If you are using docker:
-- Create the migrations for `users` app:
-  `docker-compose backend run python manage.py makemigrations`
-- Run the migrations:
-  `docker-compose backend run python manage.py migrate`
+    - Create the migrations for `users` app:
+    `docker-compose backend run python manage.py makemigrations`
+    - Run the migrations:
+    `docker-compose backend run python manage.py migrate`
 
 ### Tools
 - Setup [editorconfig](http://editorconfig.org/), [prospector](https://prospector.landscape.io/en/master/) and [ESLint](http://eslint.org/) in the text editor you will use to develop.
@@ -70,8 +70,8 @@ Will run django tests using `--keepdb` and `--parallel`. You may pass a path to 
 `make test someapp.tests.test_views`
 
 ### Adding new pypi libs
-Add the libname to either requirements.in or dev-requirents.in, then either upgrade the libs with `make upgrade` or manually compile it and then,  install.
-`pip-compile requirements.in > requirements.txt` or `make upgrade`
+Add the libname to either requirements.in or dev-requirents.in, then either upgrade the libs with `make upgrade` or manually compile it and then, install.
+`pip-compile requirements.in > requirements.txt` (or `make upgrade`)  
 `pip install -r requirements.txt`
 
 ## Deployment 

@@ -5,7 +5,7 @@ from .models import Anime, Score
 
 # Anime Search ViewSet
 def index(request):
-    return HttpResponse('Search for anime scores')
+    return HttpResponse('API root for searching a MAL anime entry')
 
 def score(request, mal_id):
     anime = get_object_or_404(Anime, mal_id=mal_id)
