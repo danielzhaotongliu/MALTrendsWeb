@@ -11,8 +11,8 @@ const Home = () => {
 
   return (
     <>
-      <SideBar className="main-container" />
-      {/* <SideBarAnt className="main-container" /> */}
+      {/* <SideBar className="main-container" /> */}
+      <SideBarAnt className="main-container" />
     </>
   );
 };
