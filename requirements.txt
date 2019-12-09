@@ -21,17 +21,18 @@ django-js-reverse==0.9.1
 django-log-request-id==1.4.0
 django-model-utils==3.2.0
 django-webpack-loader==0.6.0
-django==2.2.7
+django==2.2.8
+djangorestframework==3.10.3
 et-xmlfile==1.0.1         # via openpyxl
 gunicorn==20.0.4
-importlib-metadata==1.1.0  # via kombu
+importlib-metadata==1.2.0  # via kombu
 ipython-genutils==0.2.0   # via traitlets
 ipython==7.10.1
 jdcal==1.4.1              # via openpyxl
 jedi==0.15.1              # via ipython
-kombu==4.6.6              # via celery
+kombu==4.6.7              # via celery
 markuppy==1.14            # via tablib
-more-itertools==8.0.0     # via zipp
+more-itertools==8.0.2     # via zipp
 odfpy==1.4.0              # via tablib
 openpyxl==3.0.2           # via tablib
 parso==0.5.1              # via jedi
@@ -47,7 +48,7 @@ python-decouple==3.3
 pytz==2019.3              # via celery, django
 pyyaml==5.2               # via tablib
 redis==3.3.11             # via celery
-sentry-sdk==0.13.4
+sentry-sdk==0.13.5
 serpy==0.3.1
 six==1.13.0               # via serpy, traitlets
 sqlparse==0.3.0           # via django
