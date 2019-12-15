@@ -1,4 +1,7 @@
 import time
+from rest_framework import JSONRenderer
+from .serializers import AnimeSerializer
+from .models import Anime
 
 def serialize_anime(anime):
     return {
@@ -16,11 +19,15 @@ anime = Anime.objects.get(mal_id=1)
 # get start time
 start = time.time()
 
-
 for i in range(10000):
-    # AnimeSerializer(anime).data
-    # DRFS(anime).data
-    serialize_anime(anime)
+    AnimeSerializer(anime).data   # serpy Serializer
+    # DRFS(anime).data              # DRF Serializer
+    # serialize_anime(anime)
 
 # calculate execution time
 print(time.time() - start)
+
+# example usage
+animes = Anime.objects.all()
+serializer = AnimeSerializer(animes, many=True)
+content = JSONRenderer().render(serializer.data)
