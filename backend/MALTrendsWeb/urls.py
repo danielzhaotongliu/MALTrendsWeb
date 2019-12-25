@@ -13,8 +13,8 @@ router = routers.DefaultRouter()
 router.register(r'animes', views.AnimeViewSet)
 
 urlpatterns = [
-    path('search/', include('home_app.urls')),
-    path('drf-search/', include(router.urls)),
+    path(r'default-search/', include('home_app.urls')),  # default search using vanilla django views
+    path(r'search/', include(router.urls)),              # search using DRF
     url(r'^admin/', admin.site.urls),
     url(r'^jsreverse/$', django_js_reverse.views.urls_js, name='js_reverse'),
 
