@@ -16,6 +16,7 @@ class Anime(models.Model):
 
 class Score(models.Model):
     score = models.FloatField()
+    members = models.IntegerField()
     date_time = models.DateTimeField()
     anime = models.ForeignKey(Anime, on_delete=models.CASCADE, related_name='scores')
 
