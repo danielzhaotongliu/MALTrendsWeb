@@ -1,4 +1,6 @@
 from django.core.management.base import BaseCommand
+from django.conf import settings
+from django.utils.timezone import make_aware
 from datetime import datetime
 import time
 import json
@@ -42,9 +44,31 @@ class Command(BaseCommand):
             else:
                 self.stdout.write(f'Retrieved existing anime: "{anime}" with mal_id: {mal_id}')
             
-            # with open(file_name, 'r') as f:
-            #     for line in f:
-            #         snapshot = json.loads(line)
-            #         time = datetime.utcfromtimestamp(snapshot['timestamp']).strftime('%Y-%m-%d %H:%M:%S')
-            #         score = snapshot['score']
-            #         members = snapshot['score_count']
+            existing_score_count = anime.scores.count()
+            self.stdout.write(f'    There are {existing_score_count} existing scores associated with this anime')
+            # TODO: less flexible as we need to delete all scores related to the specified anime before loading new ones
+            anime.scores.all().delete()
+            self.stdout.write(f'    There are {anime.scores.count()} scores after deletion, should be 0')
+
+            score_objects = []
+            with open(file_name, 'r') as f:
+                for line in f:
+                    # create a Score object based on each line (snapshot) in the file
+                    snapshot = json.loads(line)
+                    time = datetime.utcfromtimestamp(snapshot['timestamp'])
+                    # make naive datetime objects aware of timezone info specified in django settings
+                    time = make_aware(time)
+                    score_object = Score(
+                        score=snapshot['score'],
+                        members=snapshot['score_count'],
+                        date_time=time,
+                        anime=anime)
+                    score_objects.append(score_object)
+            
+            # bulk create the list of Score objects **associated with the specified anime**
+            # in order to reduce the number of hits to the DB
+            # NOTE: we are using the related name as defined in the schema (home_app.models)
+            Score.objects.bulk_create(score_objects)
+            new_score_count = anime.scores.count()
+            self.stdout.write(f'    There are {new_score_count - existing_score_count} new scores added')
+            self.stdout.write(f'    After loading, there are {new_score_count} scores associated this anime')

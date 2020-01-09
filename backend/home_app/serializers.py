@@ -20,6 +20,7 @@ from .models import Anime, Score
 
 class ScoreSerializer(serializers.Serializer):
     score = serializers.FloatField()
+    members = serializers.IntegerField()
     date_time = serializers.DateTimeField()
 
 
