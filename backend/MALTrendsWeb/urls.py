@@ -10,7 +10,7 @@ from home_app import views
 
 
 router = routers.DefaultRouter()
-router.register(r'animes', views.AnimeViewSet)
+router.register(r'animes', views.AnimeViewSet, basename='Anime')
 
 urlpatterns = [
     path(r'default-search/', include('home_app.urls')),  # default search using vanilla django views

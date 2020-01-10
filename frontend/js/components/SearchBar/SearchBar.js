@@ -22,6 +22,7 @@ const animes = [
   { name: 'test0' },
 ];
 
+// TODO: deprecated
 export default function FreeSolo() {
   return (
     <div style={{ width: 220 }}>

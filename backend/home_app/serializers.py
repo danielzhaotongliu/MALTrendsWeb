@@ -31,3 +31,9 @@ class AnimeSerializer(serializers.Serializer):
     airing = serializers.BooleanField()
     url = serializers.URLField()
     scores = ScoreSerializer(many=True)
+
+
+class AnimeListSerializer(serializers.Serializer):
+    mal_id = serializers.IntegerField()
+    title = serializers.CharField()
+    title_english = serializers.CharField()

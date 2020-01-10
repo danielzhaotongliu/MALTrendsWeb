@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// TODO: deprecated
 export default function PermanentDrawerLeft() {
   const classes = useStyles();
 
