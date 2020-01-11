@@ -1,36 +1,31 @@
 import React from 'react';
-import { Layout, Menu, Icon, AutoComplete } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
+
+import SearchBar from '../SearchBar/SearchBar';
 
 import 'antd/dist/antd.css';
-import './SideBarAntStyle.css';
+import './LayoutAntStyle.css';
 
 // importing axios
 const axios = require('axios');
 // Ant design layouts
 const { Header, Content, Footer, Sider } = Layout;
 
-class PermanentSiderLeft extends React.Component {
+class LayoutAnt extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      animes: [],
-    }
+      isLoading: true,
+    };
   }
 
-  async componentDidMount() {
-    try {
-      if (this.state.animes.length === 0) {
-        const response = await axios.get('/search/animes');
-        const animes = Object.values(response.data).map(anime => anime['title_english']);
-        this.setState({ animes });
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  componentDidMount() {
+    this.setState({ isLoading: false });
   }
 
   render() {
+    const { isLoading } = this.state;
     return (
       <Layout>
         <Sider
@@ -42,13 +37,7 @@ class PermanentSiderLeft extends React.Component {
           }}
         >
           <div className="logo" />
-          <AutoComplete
-            dataSource={this.state.animes}
-            filterOption={(inputValue, option) =>
-              option.props.children.toUpperCase().includes(inputValue.toUpperCase())
-            }
-            placeholder="Search..."
-          />
+          {isLoading ? <div /> : <SearchBar />}
         </Sider>
         <Layout style={{ marginLeft: 200 }}>
           <Header style={{ background: '#fff', padding: 0 }} />
@@ -62,4 +51,4 @@ class PermanentSiderLeft extends React.Component {
   }
 }
 
-export default PermanentSiderLeft;
+export default LayoutAnt;
