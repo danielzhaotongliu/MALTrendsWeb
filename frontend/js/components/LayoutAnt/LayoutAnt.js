@@ -37,7 +37,9 @@ class LayoutAnt extends React.Component {
           }}
         >
           <div className="logo" />
-          {isLoading ? <div /> : <SearchBar />}
+          <Menu mode="inline" theme="dark">
+            <Menu.Item key="1">{isLoading ? <div /> : <SearchBar />}</Menu.Item>
+          </Menu>
         </Sider>
         <Layout style={{ marginLeft: 200 }}>
           <Header style={{ background: '#fff', padding: 0 }} />
