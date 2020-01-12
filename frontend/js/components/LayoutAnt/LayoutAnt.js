@@ -1,13 +1,12 @@
 import React from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
+import { connect } from 'react-redux';
 
 import SearchBar from '../SearchBar/SearchBar';
 
 import 'antd/dist/antd.css';
 import './LayoutAntStyle.css';
 
-// importing axios
-const axios = require('axios');
 // Ant design layouts
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -22,6 +21,13 @@ class LayoutAnt extends React.Component {
 
   componentDidMount() {
     this.setState({ isLoading: false });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.selectedId !== this.props.selectedId) {
+      // TODO: update html
+      console.log(this.props);
+    }
   }
 
   render() {
@@ -53,4 +59,12 @@ class LayoutAnt extends React.Component {
   }
 }
 
-export default LayoutAnt;
+const mapStateToProps = (state) => {
+  return {
+    scores: state.anime.scores,
+    selectedId: state.anime.selectedId,
+    selectedTitle: state.anime.selectedTitle,
+  };
+};
+
+export default connect(mapStateToProps)(LayoutAnt);

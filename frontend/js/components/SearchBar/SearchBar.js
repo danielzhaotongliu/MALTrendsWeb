@@ -1,5 +1,11 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import {
+  setAnimeScores,
+  setSelectedAnime,
+} from '../../reducers/anime/actions';
 
 // importing axios
 const axios = require('axios');
@@ -18,8 +24,14 @@ class SearchBar extends React.Component {
   async handleSelect(title) {
     try {
       const mal_id = this.state.animes[title];
-      const response = await axios.get(`/search/animes/${mal_id}`);
-      // TODO: handle response by storing to Redux state
+      if (!(mal_id in this.props.scores)) {
+        // fetch data from backend API
+        const response = await axios.get(`/search/animes/${mal_id}`);
+        // update anime scores in Redux state
+        this.props.setAnimeScores(response.data);
+      }
+      // update the selected anime's MAL id and title in Redux state
+      this.props.setSelectedAnime(mal_id, title);
     } catch (error) {
       console.log(error);
     }
@@ -53,4 +65,17 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+  return {
+    scores: state.anime.scores
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    setAnimeScores,
+    setSelectedAnime
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

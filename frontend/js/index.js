@@ -5,13 +5,20 @@ import '../sass/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import * as Sentry from '@sentry/browser';
 
-import rootReducer from './reducers/rootReducer';
+import reducers from './reducers';
 import App from './App';
 
-const store = createStore(rootReducer);
+const store = createStore(
+  reducers,
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : (f) => f
+  )
+);
 
 Sentry.init({
   dsn: window.SENTRY_DSN,
