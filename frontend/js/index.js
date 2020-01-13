@@ -16,6 +16,7 @@ const store = createStore(
   reducers,
   compose(
     applyMiddleware(thunk),
+    // TODO: upgrade as devToolsExtension is being deprecated
     window.devToolsExtension ? window.devToolsExtension() : (f) => f
   )
 );

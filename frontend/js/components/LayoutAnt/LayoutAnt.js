@@ -3,6 +3,7 @@ import { Layout, Menu } from 'antd';
 import { connect } from 'react-redux';
 
 import SearchBar from '../SearchBar/SearchBar';
+import TimeSeries from '../charts/TimeSeries';
 
 import 'antd/dist/antd.css';
 import './LayoutAntStyle.css';
@@ -23,15 +24,9 @@ class LayoutAnt extends React.Component {
     this.setState({ isLoading: false });
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.selectedId !== this.props.selectedId) {
-      // TODO: update html
-      console.log(this.props);
-    }
-  }
-
   render() {
     const { isLoading } = this.state;
+    const { selectedTitle } = this.props;
     return (
       <Layout>
         <Sider
@@ -48,9 +43,21 @@ class LayoutAnt extends React.Component {
           </Menu>
         </Sider>
         <Layout style={{ marginLeft: 200 }}>
-          <Header style={{ background: '#fff', padding: 0 }} />
+          <Header style={{ background: '#fff', padding: 0 }}>
+            {selectedTitle ? <h1>{selectedTitle}</h1> : null}
+          </Header>
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-            <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>TEST</div>
+            <div
+              style={{
+                padding: 24,
+                background: '#fff',
+                textAlign: 'center',
+                width: 700,
+                height: 600,
+              }}
+            >
+              {selectedTitle ? <TimeSeries /> : 'TEST'}
+            </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>MALTrends ©2020 Created by Daniel Liu</Footer>
         </Layout>
@@ -61,8 +68,6 @@ class LayoutAnt extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    scores: state.anime.scores,
-    selectedId: state.anime.selectedId,
     selectedTitle: state.anime.selectedTitle,
   };
 };
