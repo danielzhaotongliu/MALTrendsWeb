@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render  # noqa
 from django.http import HttpResponse, Http404
+from django.db.models import Prefetch
 from rest_framework import viewsets
 from rest_framework.response import Response
 
@@ -23,8 +24,10 @@ def score(request, mal_id):
 class AnimeViewSet(viewsets.ReadOnlyModelViewSet):
     """
     API endpoint that allows anime to be viewed
+    NOTE: prefetches data to prevent repeated hits to DB
     """
-    queryset = Anime.objects.all()
+    queryset = Anime.objects.prefetch_related(
+        Prefetch('scores', queryset=Score.objects.order_by('date_time')))
     serializer_class = AnimeSerializer
 
     def list(self, request):

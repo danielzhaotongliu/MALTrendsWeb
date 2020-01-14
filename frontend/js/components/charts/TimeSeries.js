@@ -10,17 +10,25 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
+import moment from 'moment';
 
 class TimeSeries extends React.PureComponent {
   render() {
     const { scores, selectedId } = this.props;
     return (
-      <ResponsiveContainer height="80%" width={700}>
-        <LineChart data={scores[selectedId]} height={400} width={700}>
+      <ResponsiveContainer height="100%" width="100%">
+        <LineChart data={scores[selectedId]}>
           <CartesianGrid strokeDasharray="10 10" />
-          <XAxis dataKey="date_time" />
-          <YAxis yAxisId="left" />
-          <YAxis orientation="right" yAxisId="right" />
+          <XAxis
+            dataKey="date_time"
+            tickFormatter={(timeStr) => moment.utc(timeStr).format('YYYY-MM-DD')}
+            // NOTE: later if switching to timestamp implementation, uncomment code below
+            // domain={['auto', 'auto']}
+            // scale="time"
+            // type="number"
+          />
+          <YAxis domain={['auto', 'auto']} type="number" yAxisId="left" />
+          <YAxis domain={['auto', 'auto']} orientation="right" type="number" yAxisId="right" />
           <Tooltip />
           <Legend />
           <Line dataKey="score" stroke="#8884d8" type="monotone" yAxisId="left" />

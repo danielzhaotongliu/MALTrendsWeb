@@ -1,4 +1,5 @@
 from rest_framework import serializers
+import time
 
 from .models import Anime, Score
 
@@ -18,10 +19,18 @@ from .models import Anime, Score
 #         # exclude = ['airing']
 #         # read_only_fields = fields
 
+class TimestampField(serializers.Field):
+    def to_representation(self, value):
+        # Javascript timestamp is 13 digits while in Python, it is 10 digits
+        return int(time.mktime(value.timetuple())) * 1000
+
+
 class ScoreSerializer(serializers.Serializer):
     score = serializers.FloatField()
     members = serializers.IntegerField()
     date_time = serializers.DateTimeField()
+    # NOTE: later if switching to timestamp implementation, uncomment code below
+    # date_time = TimestampField()
 
 
 class AnimeSerializer(serializers.Serializer):
@@ -30,7 +39,7 @@ class AnimeSerializer(serializers.Serializer):
     title_english = serializers.CharField()
     airing = serializers.BooleanField()
     url = serializers.URLField()
-    scores = ScoreSerializer(many=True)
+    scores = ScoreSerializer(many=True, read_only=True)
 
 
 class AnimeListSerializer(serializers.Serializer):

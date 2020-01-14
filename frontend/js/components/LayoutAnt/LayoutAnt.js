@@ -28,7 +28,7 @@ class LayoutAnt extends React.Component {
     const { isLoading } = this.state;
     const { selectedTitle } = this.props;
     return (
-      <Layout>
+      <Layout style={{ height: '100vh' }}>
         <Sider
           style={{
             overflow: 'auto',
@@ -43,7 +43,7 @@ class LayoutAnt extends React.Component {
           </Menu>
         </Sider>
         <Layout style={{ marginLeft: 200 }}>
-          <Header style={{ background: '#fff', padding: 0 }}>
+          <Header style={{ background: '#fff', padding: 0, textAlign: 'center' }}>
             {selectedTitle ? <h1>{selectedTitle}</h1> : null}
           </Header>
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
@@ -52,14 +52,13 @@ class LayoutAnt extends React.Component {
                 padding: 24,
                 background: '#fff',
                 textAlign: 'center',
-                width: 700,
-                height: 600,
+                height: '80vh',
               }}
             >
-              {selectedTitle ? <TimeSeries /> : 'TEST'}
+              {selectedTitle ? <TimeSeries /> : 'Welcome to MALTrendsWeb!'}
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>MALTrends ©2020 Created by Daniel Liu</Footer>
+          <Footer style={{ textAlign: 'center' }}>MALTrendsWeb ©2020 Created by Daniel Liu</Footer>
         </Layout>
       </Layout>
     );
