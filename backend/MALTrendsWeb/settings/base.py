@@ -23,7 +23,7 @@ ADMINS = (
 
 AUTH_USER_MODEL = 'users.User'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['maltrends.herokuapp.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'home_app.apps.HomeAppConfig',

@@ -26,7 +26,7 @@ class LayoutAnt extends React.Component {
 
   render() {
     const { isLoading } = this.state;
-    const { selectedTitle } = this.props;
+    const { selectedTitle, selectedUrl } = this.props;
     return (
       <Layout style={{ height: '100vh' }}>
         <Sider
@@ -37,14 +37,20 @@ class LayoutAnt extends React.Component {
             left: 0,
           }}
         >
-          <div className="logo" />
+          <div className="logo">MALTrends</div>
           <Menu mode="inline" theme="dark">
             <Menu.Item key="1">{isLoading ? <div /> : <SearchBar />}</Menu.Item>
           </Menu>
         </Sider>
         <Layout style={{ marginLeft: 200 }}>
-          <Header style={{ background: '#fff', padding: 0, textAlign: 'center' }}>
-            {selectedTitle ? <h1>{selectedTitle}</h1> : null}
+          <Header className="header">
+            {selectedTitle ? (
+              <h1>
+                <a href={selectedUrl} rel="noopener noreferrer" target="_blank">
+                  {selectedTitle}
+                </a>
+              </h1>
+            ) : null}
           </Header>
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             <div
@@ -68,6 +74,7 @@ class LayoutAnt extends React.Component {
 const mapStateToProps = (state) => {
   return {
     selectedTitle: state.anime.selectedTitle,
+    selectedUrl: state.anime.selectedUrl,
   };
 };
 

@@ -23,7 +23,8 @@ const animeReducer = (state = initState, action) => {
       return {
         ...state,
         selectedId: action.selectedId,
-        selectedTitle: action.selectedTitle
+        selectedTitle: action.selectedTitle,
+        selectedUrl: action.selectedUrl,
       }
     default:
       return state;

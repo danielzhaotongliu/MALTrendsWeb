@@ -6,6 +6,7 @@ import {
   setAnimeScores,
   setSelectedAnime,
 } from '../../reducers/anime/actions';
+import { BASE_MAL_URL } from '../../constants';
 
 // importing axios
 const axios = require('axios');
@@ -30,8 +31,9 @@ class SearchBar extends React.Component {
         // update anime scores in Redux state
         this.props.setAnimeScores(response.data);
       }
-      // update the selected anime's MAL id and title in Redux state
-      this.props.setSelectedAnime(mal_id, title);
+      // update the selected anime's MAL id, title, url in Redux state
+      const url = BASE_MAL_URL + mal_id;
+      this.props.setSelectedAnime(mal_id, title, url);
     } catch (error) {
       console.log(error);
     }

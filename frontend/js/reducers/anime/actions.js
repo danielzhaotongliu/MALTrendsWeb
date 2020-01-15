@@ -8,10 +8,11 @@ export function setAnimeScores(animeScores) {
   };
 }
 
-export function setSelectedAnime(selectedId, selectedTitle) {
+export function setSelectedAnime(selectedId, selectedTitle, selectedUrl) {
   return {
     type: SET_SELECTED_ANIME,
     selectedId,
     selectedTitle,
+    selectedUrl,
   };
 }

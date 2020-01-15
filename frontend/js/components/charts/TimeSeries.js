@@ -17,7 +17,7 @@ class TimeSeries extends React.PureComponent {
     const { scores, selectedId } = this.props;
     return (
       <ResponsiveContainer height="100%" width="100%">
-        <LineChart data={scores[selectedId]}>
+        <LineChart data={scores[selectedId]} margin={{ right: 10, top: 5 }}>
           <CartesianGrid strokeDasharray="10 10" />
           <XAxis
             dataKey="date_time"
