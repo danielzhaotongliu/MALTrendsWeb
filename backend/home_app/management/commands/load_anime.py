@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from django.conf import settings
 from django.utils.timezone import make_aware
 from datetime import datetime
-import time
+import time as t
 import json
 import glob
 import sys
@@ -39,7 +39,7 @@ class Command(BaseCommand):
                 anime.url = r_data['url']
                 anime.save()
                 # add delay to not overload API
-                time.sleep(5)
+                t.sleep(5)
                 self.stdout.write(f'Created new anime: "{anime}" with mal_id: {mal_id}')
             else:
                 self.stdout.write(f'Retrieved existing anime: "{anime}" with mal_id: {mal_id}')

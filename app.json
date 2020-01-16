@@ -3,7 +3,8 @@
   "description": "Maltrendsweb Heroku app.",
   "env": {
     "ALLOWED_HOSTS": {
-      "description": "Django ALLOWED_HOSTS setting, e.g.: .appname.herokuapp.com"
+      "description": "Django ALLOWED_HOSTS setting, e.g.: .appname.herokuapp.com",
+      "value": [".maltrends.herokuapp.com", "localhost", "127.0.0.1"]
     },
     "DISABLE_COLLECTSTATIC": {
       "description": "Disables Heroku collectstatic",
