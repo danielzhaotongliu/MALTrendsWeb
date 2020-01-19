@@ -8,6 +8,16 @@
   position: relative;
 }
 
+.logo:hover {
+  height: 32px;
+  margin: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: rgb(206, 206, 206);
+  position: relative;
+}
+
 .header {
   background: white;
   padding: 0;

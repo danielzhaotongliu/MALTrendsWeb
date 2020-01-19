@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404
 from django.db.models import Prefetch
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 from .models import Anime, Score
 from .serializers import AnimeSerializer, ScoreSerializer, AnimeListSerializer
@@ -34,3 +35,9 @@ class AnimeViewSet(viewsets.ReadOnlyModelViewSet):
         anime_list_queryset = self.queryset.values('mal_id', 'title', 'title_english')
         serializer = AnimeListSerializer(anime_list_queryset, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'])
+    def count(self, request):
+        anime_count = Anime.objects.count()
+        score_count = Score.objects.count()
+        return Response({'animeCount': anime_count, 'scoreCount': score_count})

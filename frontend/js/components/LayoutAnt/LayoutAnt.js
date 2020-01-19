@@ -1,9 +1,12 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { setSelectedAnime } from '../../reducers/anime/actions';
 import SearchBar from '../SearchBar/SearchBar';
 import TimeSeries from '../charts/TimeSeries';
+import HomePage from '../HomePage/HomePage';
 
 import 'antd/dist/antd.css';
 import './LayoutAntStyle.css';
@@ -14,18 +17,15 @@ const { Header, Content, Footer, Sider } = Layout;
 class LayoutAnt extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isLoading: true,
-    };
+    this.handleHomePage = this.handleHomePage.bind(this);
   }
 
-  componentDidMount() {
-    this.setState({ isLoading: false });
+  handleHomePage() {
+    const { setSelectedAnime } = this.props;
+    setSelectedAnime(null, null, null);
   }
 
   render() {
-    const { isLoading } = this.state;
     const { selectedTitle, selectedUrl } = this.props;
     return (
       <Layout style={{ height: '100vh' }}>
@@ -37,9 +37,19 @@ class LayoutAnt extends React.Component {
             left: 0,
           }}
         >
-          <div className="logo">MALTrends</div>
+          <div
+            className="logo"
+            role="button"
+            tabIndex={-1}
+            onClick={this.handleHomePage}
+            onKeyDown={this.handleHomePage}
+          >
+            MALTrends
+          </div>
           <Menu mode="inline" theme="dark">
-            <Menu.Item key="1">{isLoading ? <div /> : <SearchBar />}</Menu.Item>
+            <Menu.Item key="1">
+              <SearchBar />
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout style={{ marginLeft: 200 }}>
@@ -61,10 +71,12 @@ class LayoutAnt extends React.Component {
                 height: '80vh',
               }}
             >
-              {selectedTitle ? <TimeSeries /> : 'Welcome to MALTrendsWeb!'}
+              {selectedTitle ? <TimeSeries /> : <HomePage />}
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>MALTrendsWeb ©2020 Created by Daniel Liu</Footer>
+          <Footer style={{ textAlign: 'center' }}>
+            Created by <a href="https://github.com/danielzhaotongliu">Daniel Liu</a>
+          </Footer>
         </Layout>
       </Layout>
     );
@@ -78,4 +90,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(LayoutAnt);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ setSelectedAnime }, dispatch);
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LayoutAnt);
