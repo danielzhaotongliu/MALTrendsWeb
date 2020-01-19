@@ -37,6 +37,13 @@ class Command(BaseCommand):
                 anime.title_english = r_data['title_english']
                 anime.airing = r_data['airing']
                 anime.url = r_data['url']
+                if not anime.title_english:
+                    self.stdout.write(f'#################################################################')
+                    self.stdout.write(f'ERROR: failed to add anime: "{anime.title}" with mal_id: {mal_id}')
+                    self.stdout.write(f'#################################################################')
+                    anime.delete()
+                    t.sleep(5)
+                    continue
                 anime.save()
                 # add delay to not overload API
                 t.sleep(5)
