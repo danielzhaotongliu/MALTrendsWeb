@@ -1,7 +1,9 @@
 [![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
 
 # MALTrendsWeb
-Django/React/Postgres build of a web app to display MyAnimeList scores over time.
+Django/React/Postgres build of a web app that provides scores and popularity time series visualizations of animes on [MyAnimeList](https://myanimelist.net/).
+
+The data in this repo located at `backend/anime_data` is gathered from another project [MALTrends](https://github.com/danielzhaotongliu/MALTrends), which is a web scraper for MyAnimeList statistics on the [Wayback Machine](https://archive.org/web/) internet archive.
 
 ## About
 A [Django](https://www.djangoproject.com/) project with lots of state of the art libraries and tools like:
