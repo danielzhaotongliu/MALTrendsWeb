@@ -1,0 +1,15 @@
+{"score_count": 32992, "timestamp": 1567154773.0, "score": 8.27}
+{"score_count": 30203, "timestamp": 1563459652.0, "score": 8.27}
+{"score_count": 30203, "timestamp": 1563449876.0, "score": 8.27}
+{"score_count": 30203, "timestamp": 1562142764.0, "score": 8.27}
+{"score_count": 29639, "timestamp": 1560949867.0, "score": 8.28}
+{"score_count": 27801, "timestamp": 1557516104.0, "score": 8.28}
+{"score_count": 20340, "timestamp": 1546552427.0, "score": 8.3}
+{"score_count": 20340, "timestamp": 1546550305.0, "score": 8.3}
+{"score_count": 14264, "timestamp": 1538620261.0, "score": 8.33}
+{"score_count": 30203, "timestamp": 1562124165.0, "score": 8.27}
+{"score_count": 29921, "timestamp": 1561629329.0, "score": 8.28}
+{"score_count": 28798, "timestamp": 1559572111.0, "score": 8.28}
+{"score_count": 28798, "timestamp": 1559315593.0, "score": 8.28}
+{"score_count": 21299, "timestamp": 1547899214.0, "score": 8.3}
+{"score_count": 19714, "timestamp": 1546133365.0, "score": 8.31}
